@@ -1,0 +1,2 @@
+export const UPDATE_DARK_MODE = "UPDATE_DARK_MODE";
+export const UPDATE_LANG = "UPDATE_LANG";
