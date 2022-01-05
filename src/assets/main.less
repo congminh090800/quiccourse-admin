@@ -2,22 +2,42 @@
 @black-color: #000;
 @gray-color: #f3f3f3;
 @dark-gray-color: #15202b;
-@green-color: #52c41a;
-@red-color: #f5222d;
-@yellow-color: #faad14;
-
+@primary-color: #1890ff; // primary color for all components
+@link-color: #1890ff; // link color
+@success-color: #52c41a; // success state color
+@warning-color: #faad14; // warning state color
+@error-color: #f5222d; // error state color
+@font-size-base: 14px; // major text font size
+@heading-color: rgba(0, 0, 0, 0.85); // heading text color
+@text-color: rgba(0, 0, 0, 0.65); // major text color
+@text-color-secondary: rgba(0, 0, 0, 0.45); // secondary text color
+@disabled-color: rgba(0, 0, 0, 0.25); // disable state color
+@border-radius-base: 4px; // major border radius
+@border-color-base: #d9d9d9; // major border color
+@box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // major shadow for layers
 #app-dark {
   color: @gray-color;
   background-color: @dark-gray-color;
   height: 100vh;
   width: 100vw;
+  .ant-page-header-heading-title {
+    color: rgb(194, 186, 186);
+  }
+  .ant-page-header-ghost {
+    background-color: #001529;
+  }
 }
-
 #app-light {
   color: @dark-gray-color;
   background-color: @gray-color;
   height: 100vh;
   width: 100vw;
+  .ant-page-header-heading-title {
+    color: @dark-gray-color;
+  }
+  .ant-page-header-ghost {
+    background-color: #fff;
+  }
 }
 
 * {
