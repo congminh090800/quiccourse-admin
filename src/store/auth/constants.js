@@ -1,0 +1,2 @@
+export const UPDATE_AUTH_INFO = "UPDATE_AUTH_INFO";
+export const REFRESH_AUTH_INFO = "REFRESH_AUTH_INFO";

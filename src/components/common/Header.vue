@@ -1,43 +1,16 @@
 <template>
-  <div class="header-view">
-    <a-page-header class="page-header" title="Course admin">
-      <template slot="extra">
-        <select-lang style="margin-right: 8px"></select-lang>
-        <dark-mode-switch></dark-mode-switch>
-      </template>
-    </a-page-header>
-    <div class="side-bar">
-      <a-menu
-        style="max-width: 250px; height: calc(100vh - 64px)"
-        :default-selected-keys="['1']"
-        mode="inline"
-        :theme="darkMode ? 'dark' : 'light'"
-        :inline-collapsed="collapsed"
-      >
-        <a-menu-item key="1">
-          <a-icon type="idcard" />
-          <span>Admins</span>
-        </a-menu-item>
-        <a-menu-item key="2">
-          <a-icon type="user" />
-          <span>Users</span>
-        </a-menu-item>
-        <a-menu-item key="3">
-          <a-icon type="book" />
-          <span>Courses</span>
-        </a-menu-item>
-        <a-menu-item key="4">
-          <a-icon type="import" />
-          <span>Log out</span>
-        </a-menu-item>
-      </a-menu>
-      <div class="collapsed-btn">
-        <a-button type="primary" @click="toggleCollapsed">
-          <a-icon :type="collapsed ? 'menu-unfold' : 'menu-fold'" />
-        </a-button>
-      </div>
-    </div>
-  </div>
+  <a-layout-header class="page-header" style="padding: 0">
+    <a-icon
+      class="trigger coll-btn"
+      :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+      @click="onCollapsible"
+    />
+    <dark-mode-switch
+      class="right-item"
+      v-if="windowWidth > 576"
+    ></dark-mode-switch>
+    <select-lang class="right-item" v-if="windowWidth > 576"></select-lang>
+  </a-layout-header>
 </template>
 
 <script>
@@ -51,26 +24,42 @@ export default {
       darkMode: (state) => state.settings.darkMode,
     }),
   },
+  props: {
+    collapsed: { type: Boolean, default: false },
+  },
   data() {
     return {
-      collapsed: false,
+      windowWidth: window.innerWidth,
     };
   },
+  created() {
+    window.addEventListener("resize", this.onWindowSizeChange);
+  },
+  destroyed() {
+    window.removeEventListener("resize", this.onWindowSizeChange);
+  },
   methods: {
-    toggleCollapsed() {
-      this.collapsed = !this.collapsed;
+    onWindowSizeChange() {
+      this.windowWidth = window.innerWidth;
+    },
+    onCollapsible() {
+      this.$emit("onCollapsible");
     },
   },
 };
 </script>
 
 <style lang="less" scoped>
-.header-view {
-  .side-bar {
-    display: flex;
-    .collapsed-btn {
-      margin-top: 4px;
-    }
+.page-header {
+  display: flex;
+  align-items: center;
+  .coll-btn {
+    flex-grow: 1;
+    text-align: left;
+    padding-left: 8px;
+  }
+  .right-item {
+    margin-right: 16px;
   }
 }
 </style>

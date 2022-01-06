@@ -1,6 +1,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
+
 import settings from "./settings";
+import auth from "./auth";
+
 import VuexPersistence from "vuex-persist";
 
 Vue.use(Vuex);
@@ -12,6 +15,7 @@ const persistenceOptions = {
 const store = new Vuex.Store({
   modules: {
     settings,
+    auth,
   },
   plugins: [new VuexPersistence(persistenceOptions).plugin],
 });
