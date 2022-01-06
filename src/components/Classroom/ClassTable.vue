@@ -1,5 +1,5 @@
 <template>
-  <div class="admin-table">
+  <div class="class-table">
     <a-table
       :columns="columns"
       :row-key="(record) => record.id"
@@ -13,6 +13,9 @@
           {{ $t(val) }}
         </span>
       </template>
+      <template slot="renderOwner" slot-scope="data">
+        <span>{{ data.name }}</span>
+      </template>
       <span slot="renderAction">
         <div style="padding: 4px; cursor: pointer">
           <a-icon type="solution" style="font-size: 20px; color: green" />
@@ -24,10 +27,11 @@
 
 <script>
 const keyTitles = [
-  "ADMIN_TABLE_NAME",
-  "ADMIN_TABLE_EMAIL",
-  "ADMIN_TABLE_CREATE_TIME",
-  "ADMIN_TABLE_ACTION",
+  "CLASS_TABLE_NAME",
+  "CLASS_TABLE_CODE",
+  "CLASS_TABLE_OWNER",
+  "CLASS_TABLE_CREATE_TIME",
+  "CLASS_TABLE_ACTION",
 ];
 const columns = [
   {
@@ -36,19 +40,24 @@ const columns = [
     scopedSlots: { customRender: "renderName", title: "title0" },
   },
   {
-    key: "email",
-    dataIndex: "email",
-    scopedSlots: { customRender: "renderEmail", title: "title1" },
+    key: "code",
+    dataIndex: "code",
+    scopedSlots: { customRender: "renderCode", title: "title1" },
+  },
+  {
+    key: "owner",
+    dataIndex: "owner",
+    scopedSlots: { customRender: "renderOwner", title: "title2" },
   },
   {
     key: "createdAt",
     dataIndex: "createdAt",
-    scopedSlots: { customRender: "renderCreatedAt", title: "title2" },
+    scopedSlots: { customRender: "renderCreatedAt", title: "title3" },
   },
   {
     width: "10%",
     key: "action",
-    scopedSlots: { customRender: "renderAction", title: "title3" },
+    scopedSlots: { customRender: "renderAction", title: "title4" },
   },
 ];
 export default {
@@ -77,16 +86,16 @@ export default {
     };
   },
   async mounted() {
-    await this.getAdmins();
+    await this.getClasses();
   },
   watch: {
     sortTime: async function () {
       this.pagination.current = 1;
-      await this.getAdmins();
+      await this.getClasses();
     },
     searchName: async function () {
       this.pagination.current = 1;
-      await this.getAdmins();
+      await this.getClasses();
     },
   },
   methods: {
@@ -94,12 +103,12 @@ export default {
       const pager = { ...this.pagination };
       pager.current = pagination.current;
       this.pagination = pager;
-      await this.getAdmins();
+      await this.getClasses();
     },
-    async getAdmins() {
+    async getClasses() {
       try {
         this.loading = true;
-        const res = await this.$http.get("/api/admin/search-admin", {
+        const res = await this.$http.get("/api/admin/courses", {
           params: {
             limit: this.pagination.pageSize,
             offset: (this.pagination.current - 1) * this.pagination.pageSize,

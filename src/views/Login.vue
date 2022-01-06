@@ -48,10 +48,9 @@
               :validate-status="errors[0] ? 'error' : null"
               :help="errors[0]"
             >
-              <a-input
+              <a-input-password
                 v-model="password"
                 id="password"
-                type="password"
                 :placeholder="$t('PASSWORD_PLACEHOLDER')"
               >
                 <a-icon
@@ -59,7 +58,7 @@
                   type="lock"
                   style="color: rgba(0, 0, 0, 0.25)"
                 />
-              </a-input>
+              </a-input-password>
             </a-form-item>
           </ValidationProvider>
           <a-form-item style="text-align: right">
