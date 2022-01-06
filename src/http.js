@@ -84,6 +84,7 @@ http.interceptors.response.use(
         });
         return retryOriginalRequest;
       }
+      router.push("/login");
       return Promise.reject(err);
     }
     return Promise.reject(err);
