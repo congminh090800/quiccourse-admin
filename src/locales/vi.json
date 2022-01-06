@@ -71,5 +71,13 @@
     "CLASS_TABLE_CODE": "Mã ngắn gọn",
     "CLASS_TABLE_OWNER": "Tên chủ lớp",
     "CLASS_TABLE_CREATE_TIME": "Ngày tạo",
-    "CLASS_TABLE_ACTION": ""
+    "CLASS_TABLE_ACTION": "",
+    "BREADCRUMB_ADMIN_LIST": "Quản trị viên",
+    "BREADCRUMB_ADMIN_DETAIL": "Thông tin chi tiết QTV",
+    "BREADCRUMB_USER_LIST": "Người dùng",
+    "BREADCRUMB_USER_DETAIL": "Thông tin chi tiết người dùng",
+    "BREADCRUMB_CLASS_LIST": "Lớp học",
+    "BREADCRUMB_CLASS_DETAIL": "Thông tin chi tiết lớp học",
+    "ADD_ADMIN_BTN": "Thêm quản trị viên",
+    "ADD_ADMIN_MODAL_TITLE": "Thêm quản trị viên"
 }

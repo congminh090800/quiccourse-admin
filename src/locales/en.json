@@ -73,5 +73,13 @@
   "CLASS_TABLE_CODE": "Class code",
   "CLASS_TABLE_OWNER": "Owner name",
   "CLASS_TABLE_CREATE_TIME": "Created at",
-  "CLASS_TABLE_ACTION": ""
+  "CLASS_TABLE_ACTION": "",
+  "BREADCRUMB_ADMIN_LIST": "Admin",
+  "BREADCRUMB_ADMIN_DETAIL": "Admin detail",
+  "BREADCRUMB_USER_LIST": "User",
+  "BREADCRUMB_USER_DETAIL": "User detail",
+  "BREADCRUMB_CLASS_LIST": "Class",
+  "BREADCRUMB_CLASS_DETAIL": "Class detail",
+  "ADD_ADMIN_BTN": "Add an admin",
+  "ADD_ADMIN_MODAL_TITLE": "Add an admin"
 }

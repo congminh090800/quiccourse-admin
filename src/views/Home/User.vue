@@ -1,5 +1,15 @@
 <template>
   <div id="user-page">
+    <a-breadcrumb>
+      <a-breadcrumb-item>
+        <a-icon type="home" />
+      </a-breadcrumb-item>
+      <a-breadcrumb-item
+        ><router-link to="/user">{{
+          $t("BREADCRUMB_USER_LIST")
+        }}</router-link></a-breadcrumb-item
+      >
+    </a-breadcrumb>
     <div class="search-user-header">
       <a-input
         class="search-user-header-item"

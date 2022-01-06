@@ -1,5 +1,15 @@
 <template>
   <div id="class-page">
+    <a-breadcrumb>
+      <a-breadcrumb-item>
+        <a-icon type="home" />
+      </a-breadcrumb-item>
+      <a-breadcrumb-item
+        ><router-link to="/class">{{
+          $t("BREADCRUMB_CLASS_LIST")
+        }}</router-link></a-breadcrumb-item
+      >
+    </a-breadcrumb>
     <div class="search-class-header">
       <a-input
         class="search-class-header-item"
