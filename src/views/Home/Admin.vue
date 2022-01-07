@@ -87,6 +87,7 @@ export default {
 #admin-page {
   .search-admin-header {
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 20px;
     .search-admin-header-item {
       margin-right: 20px;
