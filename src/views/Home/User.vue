@@ -73,7 +73,6 @@ export default {
 
 <style lang="less" scoped>
 #user-page {
-  padding: 16px;
   .search-user-header {
     margin-bottom: 20px;
     .search-user-header-item {

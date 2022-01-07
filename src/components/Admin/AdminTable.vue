@@ -7,14 +7,18 @@
       :pagination="pagination"
       :loading="loading"
       @change="handleTableChange"
+      :scroll="{ x: true }"
     >
       <template v-for="(val, index) in keyTitles" :slot="`title${index}`">
         <span :key="index">
           {{ $t(val) }}
         </span>
       </template>
-      <span slot="renderAction">
-        <div style="padding: 4px; cursor: pointer">
+      <span slot="renderAction" slot-scope="data, record">
+        <div
+          @click="() => $router.push(`admin/detail/${record._id}`)"
+          style="padding: 4px; cursor: pointer"
+        >
           <a-icon type="solution" style="font-size: 20px; color: green" />
         </div>
       </span>
@@ -121,6 +125,9 @@ export default {
       this.$notification[type]({
         message: this.$t(title),
         description: message,
+        class: this.$store.state.settings.darkMode
+          ? "app-dark-notification"
+          : undefined,
       });
     },
   },

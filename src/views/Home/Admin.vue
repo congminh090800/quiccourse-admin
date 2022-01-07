@@ -40,6 +40,7 @@
           type="primary"
           icon="plus"
           @click="() => (modalVisible = true)"
+          style="background-color: green; border: 1px solid green"
         >
           {{ $t("ADD_ADMIN_BTN") }}
         </a-button>
@@ -84,7 +85,6 @@ export default {
 
 <style lang="less" scoped>
 #admin-page {
-  padding: 16px;
   .search-admin-header {
     display: flex;
     margin-bottom: 20px;

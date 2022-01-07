@@ -1,6 +1,9 @@
 <template>
   <div id="login-page">
     <div class="login-form" style="height: 50%; width: 320px">
+      <div style="margin-bottom: 20px">
+        Hint admin: admin@gmail.com / 123456
+      </div>
       <div class="settings-header">
         <select-lang></select-lang>
         <dark-mode-switch style="margin-left: 8px"></dark-mode-switch>

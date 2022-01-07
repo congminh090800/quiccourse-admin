@@ -7,6 +7,7 @@
       @ok="handleOk"
       @cancel="handleCancel"
       :footer="null"
+      :wrapClassName="darkMode == true ? 'app-dark-modal' : undefined"
     >
       <div>
         <ValidationObserver ref="addAdminRef">
@@ -132,6 +133,7 @@
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
   props: {
     visible: { type: Boolean, default: false },
@@ -145,6 +147,11 @@ export default {
       password: "",
       confirmPassword: "",
     };
+  },
+  computed: {
+    ...mapState({
+      darkMode: (state) => state.settings.darkMode,
+    }),
   },
   methods: {
     handleOk() {
@@ -175,13 +182,19 @@ export default {
       });
     },
     handleCancel() {
+      this.email = "";
+      this.name = "";
+      this.password = "";
+      this.confirmPassword = "";
       this.$emit("onCancel");
-      this.$destroyAll();
     },
     openNotificationWithIcon(type, title, message) {
       this.$notification[type]({
         message: this.$t(title),
         description: this.$t(message),
+        class: this.$store.state.settings.darkMode
+          ? "app-dark-notification"
+          : undefined,
       });
     },
   },

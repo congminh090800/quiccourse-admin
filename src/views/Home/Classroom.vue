@@ -60,7 +60,6 @@ export default {
 
 <style lang="less" scoped>
 #class-page {
-  padding: 16px;
   .search-class-header {
     margin-bottom: 20px;
     .search-class-header-item {

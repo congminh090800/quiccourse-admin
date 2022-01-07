@@ -7,6 +7,7 @@
       :pagination="pagination"
       :loading="loading"
       @change="handleTableChange"
+      :scroll="{ x: true }"
     >
       <template v-for="(val, index) in keyTitles" :slot="`title${index}`">
         <span :key="index">
@@ -130,6 +131,9 @@ export default {
       this.$notification[type]({
         message: this.$t(title),
         description: message,
+        class: this.$store.state.settings.darkMode
+          ? "app-dark-notification"
+          : undefined,
       });
     },
   },

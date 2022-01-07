@@ -3,7 +3,7 @@
     <Sidebar :collapsed="collapsed"></Sidebar>
     <a-layout>
       <Header :collapsed="collapsed" @onCollapsible="onCollapsible"></Header>
-      <a-layout-content>
+      <a-layout-content style="padding: 16px">
         <router-view></router-view>
       </a-layout-content>
     </a-layout>

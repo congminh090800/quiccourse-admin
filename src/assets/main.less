@@ -100,6 +100,18 @@
       color: #d9d9d9;
     }
   }
+  .ant-card {
+    border: 1px solid @dark-gray-color;
+    .ant-card-head {
+      background-color: #00070e !important;
+      color: #d9d9d9;
+      font-weight: 700;
+    }
+    .ant-card-body {
+      background-color: #092641;
+      color: #d9d9d9 !important;
+    }
+  }
 }
 #app-light {
   color: @dark-gray-color;
@@ -154,9 +166,38 @@
   }
 }
 
-* {
+*,
+body {
   font-family: "Roboto", sans-serif;
   // .router-link-active {
   //   color: @primary-color !important;
   // }
+  .ant-table td {
+    white-space: nowrap;
+  }
+}
+.app-dark-modal {
+  .ant-modal-header {
+    background-color: #00070e !important;
+    .ant-modal-title {
+      color: #d9d9d9;
+    }
+    font-weight: 700;
+  }
+  .ant-modal-body {
+    background-color: #092641;
+    color: #d9d9d9 !important;
+  }
+}
+
+.ant-notification-notice.app-dark-notification {
+  background-color: #12129b8e !important;
+  color: #d9d9d9 !important;
+  .ant-notification-notice-message {
+    color: #d9d9d9;
+    font-weight: 700;
+  }
+  .ant-notification-close-icon {
+    color: #d9d9d9;
+  }
 }

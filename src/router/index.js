@@ -4,8 +4,10 @@ import HomePage from "../views/Home.vue";
 import LoginPage from "../views/Login.vue";
 
 import AdminPage from "../views/Home/Admin.vue";
+import AdminDetail from "../views/Home/AdminDetail.vue";
 import ClassPage from "../views/Home/Classroom.vue";
 import UserPage from "../views/Home/User.vue";
+import UserDetail from "../views/Home/UserDetail.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -20,8 +22,16 @@ const routes = [
         component: AdminPage,
       },
       {
+        path: "admin/detail/:id",
+        component: AdminDetail,
+      },
+      {
         path: "user",
         component: UserPage,
+      },
+      {
+        path: "user/detail/:id",
+        component: UserDetail,
       },
       {
         path: "class",
