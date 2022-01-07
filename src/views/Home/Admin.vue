@@ -49,6 +49,7 @@
     <add-admin-modal
       :visible="modalVisible"
       @onCancel="onCancel"
+      @onOk="onOk"
     ></add-admin-modal>
   </div>
 </template>
@@ -63,6 +64,7 @@ export default {
       searchName: "",
       sortTime: "no",
       modalVisible: false,
+      refreshTimes: 0,
     };
   },
   methods: {
@@ -71,6 +73,10 @@ export default {
     },
     onCancel() {
       this.modalVisible = false;
+    },
+    onOk() {
+      this.sortTime = "ASC";
+      this.sortTime = "DESC";
     },
   },
 };

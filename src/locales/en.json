@@ -35,7 +35,9 @@
   },
   "fields": {
     "email": "Email",
-    "password": "Password"
+    "password": "Password",
+    "name": "Name",
+    "confirmPassword": "Confirm password"
   },
   "DARK_MODE_TEXT": "DARK",
   "LIGHT_MODE_TEXT": "LIGHT",
@@ -81,5 +83,10 @@
   "BREADCRUMB_CLASS_LIST": "Class",
   "BREADCRUMB_CLASS_DETAIL": "Class detail",
   "ADD_ADMIN_BTN": "Add an admin",
-  "ADD_ADMIN_MODAL_TITLE": "Add an admin"
+  "ADD_ADMIN_MODAL_TITLE": "Add an admin",
+  "CONFIRM_ADD_ADMIN_BTN": "Confirm",
+  "CANCEL_BTN": "Cancel",
+  "NAME_PLACEHOLDER": "Enter admin name",
+  "CONFIRM_PASSWORD_PLACEHOLDER": "Confirm password",
+  "ADD_ADMIN_SUCCESS_MESSAGE": "New admin has been created"
 }

@@ -33,7 +33,9 @@
     },
     "fields": {
         "email": "Email",
-        "password": "Mật khẩu"
+        "password": "Mật khẩu",
+        "name": "Tên",
+        "confirmPassword": "Mật khẩu xác nhận"
     },
     "DARK_MODE_TEXT": "TỐI",
     "LIGHT_MODE_TEXT": "SÁNG",
@@ -79,5 +81,10 @@
     "BREADCRUMB_CLASS_LIST": "Lớp học",
     "BREADCRUMB_CLASS_DETAIL": "Thông tin chi tiết lớp học",
     "ADD_ADMIN_BTN": "Thêm quản trị viên",
-    "ADD_ADMIN_MODAL_TITLE": "Thêm quản trị viên"
+    "ADD_ADMIN_MODAL_TITLE": "Thêm quản trị viên",
+    "CONFIRM_ADD_ADMIN_BTN": "Thêm",
+    "CANCEL_BTN": "Hủy",
+    "NAME_PLACEHOLDER": "Nhập tên",
+    "CONFIRM_PASSWORD_PLACEHOLDER": "Xác nhận mật khẩu",
+    "ADD_ADMIN_SUCCESS_MESSAGE": "Tạo quản trị viên thành công"
 }
