@@ -75,6 +75,7 @@
               style="margin-left: 8px"
               type="danger"
               :loading="mapping"
+              :disabled="!data.studentId"
               @click="unmapStudentId()"
               >{{ $t("UNMAP_BTN") }}</a-button
             >
@@ -230,7 +231,11 @@ export default {
           this.mapping = false;
           this.editing = false;
           this.getDetail();
-          this.openNotificationWithIcon("success", "SUCCESS_NOTI_TEXT");
+          this.openNotificationWithIcon(
+            "success",
+            "SUCCESS_NOTI_TEXT",
+            "MAP_STUDENT_ID_SUCCESS_MESSAGE"
+          );
         } catch (err) {
           this.mapping = false;
           this.openNotificationWithIcon("error", "FAIL_NOTI_TEXT", err.message);
@@ -245,7 +250,11 @@ export default {
         });
         this.mapping = false;
         this.getDetail();
-        this.openNotificationWithIcon("success", "SUCCESS_NOTI_TEXT");
+        this.openNotificationWithIcon(
+          "success",
+          "SUCCESS_NOTI_TEXT",
+          "UNMAP_STUDENT_ID_SUCCESS_MESSAGE"
+        );
       } catch (err) {
         this.mapping = false;
         this.openNotificationWithIcon("error", "FAIL_NOTI_TEXT", err.message);

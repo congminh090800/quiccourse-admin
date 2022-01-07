@@ -112,6 +112,7 @@
     "STUDENT_ID_PLACEHOLDER": "Nhập mã số sinh viên",
     "CHANGE_BTN": "Thay đổi",
     "MAP_STUDENT_ID_SUCCESS_MESSAGE": "Đồng bộ mã số sinh viên thành công",
+    "UNMAP_STUDENT_ID_SUCCESS_MESSAGE": "Hủy đồng bộ mã số sinh viên thành công",
     "CONFIRM_BTN": "Xác nhận",
     "UNMAP_BTN": "Hủy đồng bộ"
 }
