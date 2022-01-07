@@ -64,15 +64,62 @@
             {{ $t("USER_DETAIL_STUDENT_NOT_MAP") }}</span
           >
           <span v-else>{{ data.studentId }}</span>
-          <span style="margin-left: 20px">
+          <span style="margin-left: 20px" v-if="!editing">
             <a-button
               style="background-color: green; border: none"
               type="primary"
+              @click="() => (editing = !editing)"
               >{{ $t("CHANGE_BTN") }}</a-button
+            >
+            <a-button
+              style="margin-left: 8px"
+              type="danger"
+              :loading="mapping"
+              @click="unmapStudentId()"
+              >{{ $t("UNMAP_BTN") }}</a-button
             >
           </span>
         </div>
-        <div class="detail-item"></div>
+        <div v-if="editing" class="detail-item">
+          <ValidationObserver ref="mapRef">
+            <a-form @submit.prevent="handleSubmit" layout="inline">
+              <ValidationProvider
+                name="studentId"
+                rules="required|min:6|max:13|alpha_num"
+                v-slot="{ errors }"
+              >
+                <a-form-item
+                  style="width: 250px"
+                  :validate-status="errors[0] ? 'error' : null"
+                  :help="errors[0]"
+                >
+                  <a-input
+                    v-model="studentId"
+                    id="studentId"
+                    :placeholder="$t('STUDENT_ID_PLACEHOLDER')"
+                  >
+                  </a-input>
+                </a-form-item>
+                <a-form-item>
+                  <a-button
+                    :loading="mapping"
+                    type="primary"
+                    html-type="submit"
+                  >
+                    {{ $t("CONFIRM_BTN") }}
+                  </a-button>
+                  <a-button
+                    style="margin-left: 8px"
+                    html-type="button"
+                    @click="() => (editing = !editing)"
+                  >
+                    {{ $t("CANCEL_BTN") }}
+                  </a-button>
+                </a-form-item>
+              </ValidationProvider>
+            </a-form>
+          </ValidationObserver>
+        </div>
         <div class="detail-item">
           {{ $t("USER_DETAIL_IS_BLOCKED") }} :
           <span>
@@ -124,6 +171,9 @@ export default {
       changingStatus: false,
       data: {},
       baseUrl: process.env.VUE_APP_BASE_URL,
+      editing: false,
+      studentId: "",
+      mapping: false,
     };
   },
   async mounted() {
@@ -164,6 +214,41 @@ export default {
       } catch (err) {
         this.openNotificationWithIcon("error", "FAIL_NOTI_TEXT", err.message);
         this.changingStatus = false;
+      }
+    },
+    handleSubmit() {
+      this.$refs.mapRef.validate().then(async (success) => {
+        if (!success) {
+          return;
+        }
+        try {
+          this.mapping = true;
+          await this.$http.patch("/api/admin/users/map-student-id", {
+            id: this.data._id,
+            studentId: this.studentId,
+          });
+          this.mapping = false;
+          this.editing = false;
+          this.getDetail();
+          this.openNotificationWithIcon("success", "SUCCESS_NOTI_TEXT");
+        } catch (err) {
+          this.mapping = false;
+          this.openNotificationWithIcon("error", "FAIL_NOTI_TEXT", err.message);
+        }
+      });
+    },
+    async unmapStudentId() {
+      try {
+        this.mapping = true;
+        await this.$http.patch("/api/admin/users/map-student-id", {
+          id: this.data._id,
+        });
+        this.mapping = false;
+        this.getDetail();
+        this.openNotificationWithIcon("success", "SUCCESS_NOTI_TEXT");
+      } catch (err) {
+        this.mapping = false;
+        this.openNotificationWithIcon("error", "FAIL_NOTI_TEXT", err.message);
       }
     },
     openNotificationWithIcon(type, title, message) {

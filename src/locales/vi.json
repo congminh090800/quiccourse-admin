@@ -109,5 +109,9 @@
     "USER_DETAIL_GENDER_MALE": "Nam",
     "USER_DETAIL_GENDER_FEMALE": "Nữ",
     "USER_DETAIL_STUDENT_NOT_MAP": "Chưa đồng bộ",
-    "CHANGE_BTN": "Thay đổi"
+    "STUDENT_ID_PLACEHOLDER": "Nhập mã số sinh viên",
+    "CHANGE_BTN": "Thay đổi",
+    "MAP_STUDENT_ID_SUCCESS_MESSAGE": "Đồng bộ mã số sinh viên thành công",
+    "CONFIRM_BTN": "Xác nhận",
+    "UNMAP_BTN": "Hủy đồng bộ"
 }
