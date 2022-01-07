@@ -6,7 +6,7 @@ import { localize } from "vee-validate";
 Vue.use(VueI18n);
 
 const localStorage = JSON.parse(
-  window.localStorage.getItem("vuex-hcmus-cours-admin")
+  window.localStorage.getItem("vuex-quiccourse-admin")
 );
 const i18n = new VueI18n({
   locale:

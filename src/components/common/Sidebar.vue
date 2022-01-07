@@ -6,7 +6,7 @@
     collapsible
   >
     <div style="height: 60px" class="logo">
-      <div class="logo-text">Course Admin</div>
+      <div class="logo-text">Quiccourse</div>
     </div>
     <a-menu
       @select="onSelect"

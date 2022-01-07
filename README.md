@@ -1,10 +1,8 @@
-# hcmus-course-admin
+# quiccourse-admin
 
-> ## Description: admin for hcmus course
+> ## Description: admin for quiccourse
 
-> ### github: https://github.com/congminh090800/quiccourse-backend
-
-> ### host: https://hcmus-course-admin.vercel.app/
+> ### host:
 
 ## Project setup
 

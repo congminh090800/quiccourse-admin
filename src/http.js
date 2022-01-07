@@ -32,7 +32,7 @@ http.interceptors.request.use(
       accessToken = store.state.auth.accessToken;
     }
     if (!accessToken) {
-      let localStore = localStorage.getItem("vuex-hcmus-cours-admin");
+      let localStore = localStorage.getItem("vuex-quiccourse-admin");
       if (localStore) {
         localStore = JSON.parse(localStore);
         accessToken = localStore?.auth?.accessToken || "";
