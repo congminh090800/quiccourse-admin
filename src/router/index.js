@@ -6,6 +6,7 @@ import LoginPage from "../views/Login.vue";
 import AdminPage from "../views/Home/Admin.vue";
 import AdminDetail from "../views/Home/AdminDetail.vue";
 import ClassPage from "../views/Home/Classroom.vue";
+import ClassDetail from "../views/Home/ClassDetail.vue";
 import UserPage from "../views/Home/User.vue";
 import UserDetail from "../views/Home/UserDetail.vue";
 Vue.use(VueRouter);
@@ -36,6 +37,10 @@ const routes = [
       {
         path: "class",
         component: ClassPage,
+      },
+      {
+        path: "class/detail/:id",
+        component: ClassDetail,
       },
     ],
   },

@@ -17,8 +17,11 @@
       <template slot="renderOwner" slot-scope="data">
         <span>{{ data.name }}</span>
       </template>
-      <span slot="renderAction">
-        <div style="padding: 4px; cursor: pointer">
+      <span slot="renderAction" slot-scope="data, record">
+        <div
+          style="padding: 4px; cursor: pointer"
+          @click="() => $router.push(`/class/detail/${record._id}`)"
+        >
           <a-icon type="solution" style="font-size: 20px; color: green" />
         </div>
       </span>
