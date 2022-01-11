@@ -2,7 +2,7 @@
 
 > ## Description: admin for quiccourse
 
-> ### host:
+> ### host: https://quiccourse-admin.vercel.app/
 
 ## Project setup
 
